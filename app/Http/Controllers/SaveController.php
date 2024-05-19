@@ -18,7 +18,16 @@ class SaveController extends Controller
         // Save each video
         foreach ($videos as $key => $value) {
             // Example: Save the video to storage
-            $videoPath = $value->store('videos', 'public'); // Assuming 'public' is the disk name
+            $originalFilename = $value->getClientOriginalName();
+            $extension = $value->getClientOriginalExtension();
+
+            // Generate a unique filename to avoid conflicts
+            $filename = pathinfo($originalFilename, PATHINFO_FILENAME);
+
+            $filenameToStore = $filename . '_' . time() . '.' . $extension;
+
+            // Save the video to storage with the original filename and extension
+            $videoPath = $value->storeAs('videos', $filenameToStore, 'public');
 
 
             // Example: Save additional data related to the video
