@@ -18,7 +18,8 @@ class SaveController extends Controller
         // Save each video
         foreach ($videos as $key => $value) {
             // Example: Save the video to storage
-            $videoPath = $value->store('videos');
+            $videoPath = $value->store('videos', 'public'); // Assuming 'public' is the disk name
+
 
             // Example: Save additional data related to the video
             $size = $request->input('size.'.$key); // Retrieve input at index $key
