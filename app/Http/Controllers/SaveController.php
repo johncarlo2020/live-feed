@@ -21,7 +21,7 @@ class SaveController extends Controller
             // Example: Save the video to storage
             $originalFilename = $value->getClientOriginalName();
 
-            $videoPath = $value->storeAs('videos', $originalFilename, 'public');
+            $videoPath = $value->storeAs('public/videos', $originalFilename, 'public');
 
 
             // Example: Save additional data related to the video
