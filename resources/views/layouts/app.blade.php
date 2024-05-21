@@ -18,6 +18,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+</head>
+<body>
 </head>
 <body>
     <div id="app">
@@ -63,13 +68,15 @@
                                         {{ __('Home') }}
                                     </a>
 
+                                    <a class="dropdown-item" href="{{ route('queue') }}">
+                                        {{ __('Queue') }}
+                                    </a>
+
 
                                     <a class="dropdown-item" href="{{ route('upload-video') }}">
                                         {{ __('Upload VIdeo') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}">
-                                        {{ __('Settings') }}
-                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('settings') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

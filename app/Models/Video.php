@@ -10,6 +10,6 @@ class Video extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'playtime', 'type','size'
+        'name', 'playtime', 'type','size','is_favorite','status'
     ];
 }
